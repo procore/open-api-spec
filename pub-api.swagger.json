@@ -1,0 +1,5018 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Honest Buildings API",
+    "description" : "This is the documentation for the Honest Buildings public API.",
+    "termsOfService" : "https://www.honestbuildings.com/static/#!/terms",
+    "version" : "1.0"
+  },
+  "servers" : [ {
+    "url" : "https://local.honestbuildings.com:8443"
+  } ],
+  "paths" : {
+    "/pub/v1/accounting-codes" : {
+      "get" : {
+        "operationId" : "getAccountingCodes",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagingResponsePubAccountingCode"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createAccountingCodes",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubAccountingCode"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/accounting-codes/{id}" : {
+      "get" : {
+        "operationId" : "getAccountingCode",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubAccountingCode"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateAccountingCodes",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubAccountingCode"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/accounting-invoices" : {
+      "get" : {
+        "operationId" : "getAccountingInvoices",
+        "parameters" : [ {
+          "name" : "dateUpdated",
+          "in" : "query",
+          "schema" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }, {
+          "name" : "dateCreated",
+          "in" : "query",
+          "schema" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }, {
+          "name" : "buildingCode",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "vendorCode",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "jobCode",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagingResponsePubAccountingInvoice"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/accounting-invoices/{id}" : {
+      "get" : {
+        "operationId" : "getAccountingInvoice",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubAccountingInvoice"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/bidrooms" : {
+      "post" : {
+        "operationId" : "createBidroom",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubBidroomResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/bidrooms/{bidroomId}" : {
+      "get" : {
+        "operationId" : "getBidroom",
+        "parameters" : [ {
+          "name" : "bidroomId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubBidroomResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/change-orders/{changeOrderAncestorId}" : {
+      "get" : {
+        "operationId" : "getChangeOrder",
+        "parameters" : [ {
+          "name" : "changeOrderAncestorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubChangeOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateChangeOrderStatus",
+        "parameters" : [ {
+          "name" : "changeOrderAncestorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubChangeOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/change-orders" : {
+      "get" : {
+        "operationId" : "getChangeOrders",
+        "parameters" : [ {
+          "name" : "contractId",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "pending", "approved", "rejected", "closed", "potential", "reviewed" ]
+          }
+        }, {
+          "name" : "dateUpdated",
+          "in" : "query",
+          "schema" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagingResponsePubChangeOrderBaseResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/buildings/{companyBuildingId}" : {
+      "get" : {
+        "operationId" : "getPubCompanyBuilding",
+        "parameters" : [ {
+          "name" : "companyBuildingId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubCompanyBuildingResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updatePubCompanyBuilding",
+        "parameters" : [ {
+          "name" : "companyBuildingId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubCompanyBuildingResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteBuildingById",
+        "parameters" : [ {
+          "name" : "companyBuildingId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/buildings" : {
+      "get" : {
+        "operationId" : "getPubCompanyBuildings",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagingResponsePubCompanyBuildingResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createPubCompanyBuilding",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubCompanyBuildingResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/buildings/building-code/{companyBuildingCode}" : {
+      "get" : {
+        "operationId" : "getPubCompanyBuildingByCompanyBuildingCode",
+        "parameters" : [ {
+          "name" : "companyBuildingCode",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubCompanyBuildingResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteBuildingByBuildingCode",
+        "parameters" : [ {
+          "name" : "companyBuildingCode",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/vendors/{companyVendorId}/contacts" : {
+      "get" : {
+        "operationId" : "getCompanyVendorContacts",
+        "parameters" : [ {
+          "name" : "companyVendorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "date_created",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "email_address",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagingResponsePubCompanyVendorContactResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createCompanyVendor",
+        "parameters" : [ {
+          "name" : "companyVendorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubCompanyVendorContactResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/vendors/{companyVendorId}/contacts/{companyVendorContactId}" : {
+      "get" : {
+        "operationId" : "getCompanyVendorContact",
+        "parameters" : [ {
+          "name" : "companyVendorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "companyVendorContactId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubCompanyVendorContactResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateCompanyVendorContact",
+        "parameters" : [ {
+          "name" : "companyVendorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "companyVendorContactId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubCompanyVendorContactResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteCompanyVendorContact",
+        "parameters" : [ {
+          "name" : "companyVendorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "companyVendorContactId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/vendors/{companyVendorId}" : {
+      "get" : {
+        "operationId" : "getCompanyVendor",
+        "parameters" : [ {
+          "name" : "companyVendorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubCompanyVendorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateCompanyVendor",
+        "parameters" : [ {
+          "name" : "companyVendorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubCompanyVendorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteCompanyVendorById",
+        "parameters" : [ {
+          "name" : "companyVendorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/vendors" : {
+      "get" : {
+        "operationId" : "getCompanyVendors",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagingResponsePubCompanyVendorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createCompanyVendor_1",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubCompanyVendorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/vendors/code/{companyVendorCode}" : {
+      "delete" : {
+        "operationId" : "deleteCompanyVendorByCode",
+        "parameters" : [ {
+          "name" : "companyVendorCode",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/contracts/{contractId}" : {
+      "get" : {
+        "operationId" : "getContract",
+        "parameters" : [ {
+          "name" : "contractId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubContractResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updatePubContract",
+        "parameters" : [ {
+          "name" : "contractId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubContractResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/contracts" : {
+      "get" : {
+        "operationId" : "getPubContracts",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagingResponsePubContractBaseResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/accounting-invoices-raw/{id}" : {
+      "get" : {
+        "operationId" : "getInvoiceAccountingRaw",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubInvoiceAccountingRawResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateInvoiceAccountingRaw",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubInvoiceAccountingRawResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/accounting-invoices-raw" : {
+      "get" : {
+        "operationId" : "getPubInvoiceAccountingRaws",
+        "parameters" : [ {
+          "name" : "contractCode",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "vendorCode",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "jobCode",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "POSTED", "RELEASED", "PAID", "UNUSED", "VOID", "REVERSED", "DELETED" ]
+          }
+        }, {
+          "name" : "dateCreated",
+          "in" : "query",
+          "schema" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagingResponsePubInvoiceAccountingRawBaseResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createInvoiceAccountingRaw",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubInvoiceAccountingRawResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/invoices" : {
+      "get" : {
+        "operationId" : "getInvoices",
+        "parameters" : [ {
+          "name" : "contractId",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "dateIssued",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "dateCreated",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "periodStart",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "periodEnd",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "pending", "approved", "rejected", "reviewed" ]
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagingResponsePubInvoiceBaseResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/invoices/{invoiceAncestorId}" : {
+      "get" : {
+        "operationId" : "getInvoice",
+        "parameters" : [ {
+          "name" : "invoiceAncestorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubInvoiceResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateInvoice",
+        "parameters" : [ {
+          "name" : "invoiceAncestorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubInvoiceResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/jobs/job-code/{jobCode}" : {
+      "get" : {
+        "operationId" : "getPubJobByJobCode",
+        "parameters" : [ {
+          "name" : "jobCode",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "deletedFlag",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubJobResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/jobs" : {
+      "get" : {
+        "operationId" : "getPubJobs",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagingResponsePubJobBaseResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createPubJob",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubJobResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/jobs/{jobId}" : {
+      "get" : {
+        "operationId" : "getPubJob",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "deletedFlag",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubJobResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updatePubJob",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubJobResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deletePubJobById",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/jobs/code/{jobCode}" : {
+      "delete" : {
+        "operationId" : "deletePubJobByCode",
+        "parameters" : [ {
+          "name" : "jobCode",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/jobs/{jobId}/users" : {
+      "get" : {
+        "operationId" : "getJobUsers",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagingResponsePubUserJobGetResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createJobUser",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteJobUserByIdOrEmail",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/jobs/{jobId}/users/email/{userEmail}" : {
+      "delete" : {
+        "operationId" : "deleteJobUserByEmail",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "userEmail",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/jobs/{jobId}/users/{userId}" : {
+      "get" : {
+        "operationId" : "getJobUser",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "userId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubUserJobGetResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteJobUserById",
+        "parameters" : [ {
+          "name" : "jobId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "userId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubMessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/oauth2/token" : {
+      "post" : {
+        "operationId" : "generateAccessTokenUrlEncoded",
+        "requestBody" : {
+          "content" : {
+            "application/x-www-form-urlencoded" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "client_id" : {
+                    "type" : "string"
+                  },
+                  "client_secret" : {
+                    "type" : "string"
+                  },
+                  "grant_type" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OauthClientCredentialsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/users/{userId}" : {
+      "get" : {
+        "operationId" : "getCompanyUser",
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubUserGetResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pub/v1/users" : {
+      "get" : {
+        "operationId" : "getCompanyUsers",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OauthUser"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagingResponsePubUserGetResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "summary" : "Creates a new user and associate it to the current logged user company",
+        "operationId" : "createCompanyUser",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PubUserPostRequest"
+              },
+              "example" : {
+                "user_email" : "jonsnow@housestark.com",
+                "first_name" : "Jon",
+                "last_name" : "Snow",
+                "title" : "Aegon Targaryen",
+                "user_company_role" : "admin",
+                "send_notification" : true
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PubUserGetResponse"
+                },
+                "example" : {
+                  "user_email" : "jonsnow@housestark.com",
+                  "first_name" : "Jon",
+                  "last_name" : "Snow",
+                  "title" : "Aegon Targaryen",
+                  "user_id" : 1,
+                  "user_last_login" : 1557335864,
+                  "user_company_role" : "admin"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "PagingOrderDataResponse" : {
+        "type" : "object",
+        "properties" : {
+          "orderBy" : {
+            "type" : "string"
+          },
+          "orderDirection" : {
+            "type" : "string",
+            "enum" : [ "ASC", "DESC" ]
+          }
+        }
+      },
+      "PagingResponsePubAccountingCode" : {
+        "type" : "object",
+        "properties" : {
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubAccountingCode"
+            }
+          },
+          "orderData" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PagingOrderDataResponse"
+            }
+          },
+          "prev" : {
+            "type" : "string"
+          },
+          "next" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubAccountingCode" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "label" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "accountCode" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "costCode" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "costCategoryCode" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "costListCode" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "phaseCode" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "jobType" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "entityCode" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          }
+        }
+      },
+      "OauthUser" : {
+        "type" : "object",
+        "properties" : {
+          "companyId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "userId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "readOnlyFlag" : {
+            "type" : "boolean"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PagingRequest" : {
+        "type" : "object"
+      },
+      "PagingResponsePubAccountingInvoice" : {
+        "type" : "object",
+        "properties" : {
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubAccountingInvoice"
+            }
+          },
+          "orderData" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PagingOrderDataResponse"
+            }
+          },
+          "prev" : {
+            "type" : "string"
+          },
+          "next" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubAccountingInvoice" : {
+        "required" : [ "amount", "invoiceDate", "jobCode", "valueOrig" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "invoiceNumber" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "number"
+          },
+          "valueOrig" : {
+            "type" : "number"
+          },
+          "buildingCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "jobCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "vendorCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "contractCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "invoiceDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "period" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "POSTED", "RELEASED", "PAID", "UNUSED", "VOID", "REVERSED", "DELETED" ]
+          },
+          "source" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "costCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "costCodeName" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "costCategoryCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "checkNumber" : {
+            "maxLength" : 31,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "description" : {
+            "maxLength" : 65535,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "details" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubAccountingInvoiceDetail"
+            }
+          }
+        }
+      },
+      "PubAccountingInvoiceDetail" : {
+        "required" : [ "lineItem" ],
+        "type" : "object",
+        "properties" : {
+          "lineItem" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "categoryCode" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "accountCode" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "checkNumber" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "checkDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "checkPeriod" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "paymentMethod" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "retention" : {
+            "type" : "number"
+          },
+          "reference" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "status" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string",
+            "enum" : [ "PENDING", "POSTED", "RELEASED", "PAID", "UNUSED", "VOID", "REVERSED", "DELETED" ]
+          }
+        }
+      },
+      "PubBidderResponse" : {
+        "type" : "object",
+        "properties" : {
+          "companyName" : {
+            "type" : "string"
+          },
+          "vendorTeam" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/UserResponse"
+            }
+          },
+          "totalBid" : {
+            "type" : "number"
+          }
+        }
+      },
+      "PubBidroomResponse" : {
+        "type" : "object",
+        "properties" : {
+          "currencyCode" : {
+            "type" : "string",
+            "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZWD" ]
+          },
+          "baseCurrencyCode" : {
+            "type" : "string",
+            "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZWD" ]
+          },
+          "fxRate" : {
+            "type" : "number"
+          },
+          "isFxConverted" : {
+            "type" : "boolean"
+          },
+          "bidroomId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "bidroomName" : {
+            "type" : "string"
+          },
+          "bidformId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "contractId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "bidders" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubBidderResponse"
+            }
+          },
+          "jobId" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "UserResponse" : {
+        "type" : "object",
+        "properties" : {
+          "userId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "firstName" : {
+            "type" : "string"
+          },
+          "lastName" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string"
+          },
+          "thumbUrl" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubBidroomPostRequest" : {
+        "required" : [ "jobId" ],
+        "type" : "object",
+        "properties" : {
+          "jobId" : {
+            "minimum" : 1,
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "bidroomName" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "sealedBidsFlag" : {
+            "type" : "boolean"
+          },
+          "bidroomType" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "userEmail" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          }
+        }
+      },
+      "ApprovalWorkflowItemResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "approvalWorkflowId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "pending", "approved", "rejected" ]
+          },
+          "approvalUserId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "ordinal" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "comment" : {
+            "type" : "string"
+          },
+          "statusDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "userId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "firstName" : {
+            "type" : "string"
+          },
+          "lastName" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ApprovalWorkflowResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "pending", "approved", "canceled", "rejected" ]
+          },
+          "publishedUserId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "firstName" : {
+            "type" : "string"
+          },
+          "lastName" : {
+            "type" : "string"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "approvalWorkflowItems" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ApprovalWorkflowItemResponse"
+            }
+          }
+        }
+      },
+      "PubAccountingCodeResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "label" : {
+            "type" : "string"
+          },
+          "accountCode" : {
+            "type" : "string"
+          },
+          "jobType" : {
+            "type" : "string"
+          },
+          "phaseCode" : {
+            "type" : "string"
+          },
+          "entityCode" : {
+            "type" : "string"
+          },
+          "costCategory" : {
+            "type" : "string"
+          },
+          "costList" : {
+            "type" : "string"
+          },
+          "costCode" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubChangeOrderHistoryResponse" : {
+        "type" : "object",
+        "properties" : {
+          "userId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "userName" : {
+            "type" : "string"
+          },
+          "companyName" : {
+            "type" : "string"
+          },
+          "actionDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "createdDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "action" : {
+            "type" : "string",
+            "enum" : [ "created", "updated" ]
+          },
+          "newStatus" : {
+            "type" : "string",
+            "enum" : [ "pending", "approved", "rejected", "closed", "potential", "reviewed" ]
+          },
+          "reason" : {
+            "type" : "string"
+          },
+          "companyVendorContactId" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "PubChangeOrderResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "changeOrderNumber" : {
+            "type" : "integer"
+          },
+          "changeOrderValue" : {
+            "type" : "number"
+          },
+          "reason" : {
+            "type" : "string"
+          },
+          "contractId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "dateApproved" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "pending", "approved", "rejected", "closed", "potential", "reviewed" ]
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "changeOrderCode" : {
+            "type" : "string"
+          },
+          "contractCode" : {
+            "type" : "string"
+          },
+          "contractNumber" : {
+            "type" : "integer"
+          },
+          "approvalDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "history" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubChangeOrderHistoryResponse"
+            }
+          },
+          "isCreatedByVendor" : {
+            "type" : "boolean"
+          },
+          "sentToAccountingFlag" : {
+            "type" : "boolean"
+          },
+          "sentToAccountingTimeStamp" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "sentToAccountingUserId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "costScheduleId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "approvalWorkflow" : {
+            "$ref" : "#/components/schemas/ApprovalWorkflowResponse"
+          },
+          "costDetails" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubCostDetailResponse"
+            }
+          }
+        }
+      },
+      "PubCostDetailResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "costScheduleId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "cost" : {
+            "type" : "number"
+          },
+          "label" : {
+            "type" : "string"
+          },
+          "accountingCode" : {
+            "$ref" : "#/components/schemas/PubAccountingCodeResponse"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "PubChangeOrderPutStatusRequest" : {
+        "required" : [ "status" ],
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "string",
+            "enum" : [ "pending", "approved", "rejected", "closed", "potential", "reviewed" ]
+          },
+          "dateApproved" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "reason" : {
+            "maxLength" : 65535,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "notificationEnabled" : {
+            "type" : "boolean"
+          },
+          "changeOrderCode" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PagingResponsePubChangeOrderBaseResponse" : {
+        "type" : "object",
+        "properties" : {
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubChangeOrderBaseResponse"
+            }
+          },
+          "orderData" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PagingOrderDataResponse"
+            }
+          },
+          "prev" : {
+            "type" : "string"
+          },
+          "next" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubChangeOrderBaseResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "changeOrderNumber" : {
+            "type" : "integer"
+          },
+          "changeOrderValue" : {
+            "type" : "number"
+          },
+          "reason" : {
+            "type" : "string"
+          },
+          "contractId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "dateApproved" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "pending", "approved", "rejected", "closed", "potential", "reviewed" ]
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "changeOrderCode" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubCompanyBuildingResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "companyId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "buildingName" : {
+            "type" : "string"
+          },
+          "market" : {
+            "type" : "string"
+          },
+          "sqFt" : {
+            "type" : "number"
+          },
+          "streetAddress" : {
+            "type" : "string"
+          },
+          "city" : {
+            "type" : "string"
+          },
+          "region" : {
+            "type" : "string"
+          },
+          "postalCode" : {
+            "type" : "string"
+          },
+          "country" : {
+            "type" : "string"
+          },
+          "lat" : {
+            "type" : "number"
+          },
+          "lng" : {
+            "type" : "number"
+          },
+          "assetManager" : {
+            "type" : "string"
+          },
+          "entityName" : {
+            "type" : "string"
+          },
+          "accountsPayableEmail" : {
+            "type" : "string"
+          },
+          "buildingDesc" : {
+            "type" : "string"
+          },
+          "buildingCode" : {
+            "type" : "string"
+          },
+          "archivedFlag" : {
+            "type" : "boolean"
+          },
+          "normalizeAddressFlag" : {
+            "type" : "boolean"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "subMarket" : {
+            "type" : "string"
+          },
+          "localeLevel1" : {
+            "type" : "string"
+          },
+          "localeLevel2" : {
+            "type" : "string"
+          },
+          "localeLevel3" : {
+            "type" : "string"
+          },
+          "portfolio" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubCompanyBuildingRequest" : {
+        "required" : [ "buildingName", "city", "country", "postalCode", "region", "streetAddress" ],
+        "type" : "object",
+        "properties" : {
+          "buildingName" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "buildingDesc" : {
+            "maxLength" : 65535,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "streetAddress" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "city" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "region" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "postalCode" : {
+            "maxLength" : 15,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "country" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "lat" : {
+            "maximum" : 90,
+            "exclusiveMaximum" : false,
+            "minimum" : -90,
+            "exclusiveMinimum" : false,
+            "type" : "number"
+          },
+          "lng" : {
+            "maximum" : 180,
+            "exclusiveMaximum" : false,
+            "minimum" : -180,
+            "exclusiveMinimum" : false,
+            "type" : "number"
+          },
+          "buildingCode" : {
+            "maxLength" : 2047,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "sqFt" : {
+            "minimum" : 0,
+            "exclusiveMinimum" : false,
+            "type" : "number"
+          },
+          "market" : {
+            "maxLength" : 100,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "assetManager" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "entityName" : {
+            "maxLength" : 127,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "accountsPayableEmail" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "archivedFlag" : {
+            "type" : "boolean"
+          },
+          "normalizeAddressFlag" : {
+            "type" : "boolean"
+          },
+          "subMarket" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "localeLevel1" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "localeLevel2" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "localeLevel3" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "portfolio" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          }
+        }
+      },
+      "PagingResponsePubCompanyBuildingResponse" : {
+        "type" : "object",
+        "properties" : {
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubCompanyBuildingResponse"
+            }
+          },
+          "orderData" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PagingOrderDataResponse"
+            }
+          },
+          "prev" : {
+            "type" : "string"
+          },
+          "next" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubMessageResponse" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PagingResponsePubCompanyVendorContactResponse" : {
+        "type" : "object",
+        "properties" : {
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubCompanyVendorContactResponse"
+            }
+          },
+          "orderData" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PagingOrderDataResponse"
+            }
+          },
+          "prev" : {
+            "type" : "string"
+          },
+          "next" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubCompanyVendorContactPhoneNumberResponse" : {
+        "type" : "object",
+        "properties" : {
+          "phoneNumber" : {
+            "type" : "string"
+          },
+          "phoneType" : {
+            "type" : "string",
+            "enum" : [ "Office", "Mobile", "Home", "Fax", "Other" ]
+          }
+        }
+      },
+      "PubCompanyVendorContactResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "companyVendorId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "userId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "firstName" : {
+            "type" : "string"
+          },
+          "lastName" : {
+            "type" : "string"
+          },
+          "emailAddress" : {
+            "type" : "string"
+          },
+          "phoneNumbers" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubCompanyVendorContactPhoneNumberResponse"
+            }
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "primaryContactFlag" : {
+            "type" : "boolean"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "CompanyVendorContactPhoneRequest" : {
+        "type" : "object",
+        "properties" : {
+          "phoneNumber" : {
+            "maxLength" : 15,
+            "minLength" : 1,
+            "type" : "string"
+          },
+          "phoneType" : {
+            "type" : "string",
+            "enum" : [ "Office", "Mobile", "Home", "Fax", "Other" ]
+          }
+        }
+      },
+      "PubCompanyVendorContactRequest" : {
+        "required" : [ "companyVendorId", "emailAddress", "firstName", "primaryContactFlag" ],
+        "type" : "object",
+        "properties" : {
+          "companyVendorId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "firstName" : {
+            "maxLength" : 100,
+            "minLength" : 1,
+            "type" : "string"
+          },
+          "lastName" : {
+            "maxLength" : 100,
+            "minLength" : 1,
+            "type" : "string"
+          },
+          "emailAddress" : {
+            "maxLength" : 255,
+            "minLength" : 1,
+            "type" : "string"
+          },
+          "phoneNumbers" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/CompanyVendorContactPhoneRequest"
+            }
+          },
+          "title" : {
+            "maxLength" : 255,
+            "minLength" : 1,
+            "type" : "string"
+          },
+          "primaryContactFlag" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "PubCompanyVendorResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "vendorCode" : {
+            "type" : "string"
+          },
+          "companyId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "vendorCompanyId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "companyName" : {
+            "type" : "string"
+          },
+          "vendorType" : {
+            "type" : "string"
+          },
+          "address1" : {
+            "type" : "string"
+          },
+          "address2" : {
+            "type" : "string"
+          },
+          "city" : {
+            "type" : "string"
+          },
+          "region" : {
+            "type" : "string"
+          },
+          "postalCode" : {
+            "type" : "string"
+          },
+          "country" : {
+            "type" : "string"
+          },
+          "lat" : {
+            "type" : "number"
+          },
+          "lng" : {
+            "type" : "number"
+          },
+          "website" : {
+            "type" : "string"
+          },
+          "comments" : {
+            "type" : "string"
+          },
+          "isMbeCertified" : {
+            "type" : "boolean"
+          },
+          "isWbeCertified" : {
+            "type" : "boolean"
+          },
+          "isLeedCertified" : {
+            "type" : "boolean"
+          },
+          "isUnion" : {
+            "type" : "boolean"
+          },
+          "isNonUnion" : {
+            "type" : "boolean"
+          },
+          "isCompanyContact" : {
+            "type" : "boolean"
+          },
+          "insuranceExpiryDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "wsibExpiryDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "vendorContacts" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubCompanyVendorContactResponse"
+            }
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "PubCompanyVendorRequest" : {
+        "required" : [ "companyName" ],
+        "type" : "object",
+        "properties" : {
+          "companyName" : {
+            "maxLength" : 200,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "vendorCode" : {
+            "maxLength" : 2047,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "vendorTypes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubCompanyVendorTypeRequest"
+            }
+          },
+          "address1" : {
+            "maxLength" : 100,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "address2" : {
+            "maxLength" : 100,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "city" : {
+            "maxLength" : 100,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "region" : {
+            "maxLength" : 100,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "postalCode" : {
+            "maxLength" : 20,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "country" : {
+            "maxLength" : 100,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "lat" : {
+            "maximum" : 90,
+            "exclusiveMaximum" : false,
+            "minimum" : -90,
+            "exclusiveMinimum" : false,
+            "type" : "number"
+          },
+          "lng" : {
+            "maximum" : 180,
+            "exclusiveMaximum" : false,
+            "minimum" : -180,
+            "exclusiveMinimum" : false,
+            "type" : "number"
+          },
+          "website" : {
+            "maxLength" : 511,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "comments" : {
+            "maxLength" : 65535,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "isMbeCertified" : {
+            "type" : "boolean"
+          },
+          "isWbeCertified" : {
+            "type" : "boolean"
+          },
+          "isLeedCertified" : {
+            "type" : "boolean"
+          },
+          "isUnion" : {
+            "type" : "boolean"
+          },
+          "isNonUnion" : {
+            "type" : "boolean"
+          },
+          "isCompanyContact" : {
+            "type" : "boolean"
+          },
+          "insuranceExpiryDate" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "wsibExpiryDate" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }
+      },
+      "PubCompanyVendorTypeRequest" : {
+        "required" : [ "keyword" ],
+        "type" : "object",
+        "properties" : {
+          "keyword" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          }
+        }
+      },
+      "PagingResponsePubCompanyVendorResponse" : {
+        "type" : "object",
+        "properties" : {
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubCompanyVendorResponse"
+            }
+          },
+          "orderData" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PagingOrderDataResponse"
+            }
+          },
+          "prev" : {
+            "type" : "string"
+          },
+          "next" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubContractResponse" : {
+        "type" : "object",
+        "properties" : {
+          "currencyCode" : {
+            "type" : "string",
+            "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZWD" ]
+          },
+          "baseCurrencyCode" : {
+            "type" : "string",
+            "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZWD" ]
+          },
+          "fxRate" : {
+            "type" : "number"
+          },
+          "isFxConverted" : {
+            "type" : "boolean"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "label" : {
+            "type" : "string"
+          },
+          "budget" : {
+            "type" : "number"
+          },
+          "awardedValue" : {
+            "type" : "number"
+          },
+          "dateAwarded" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "companyVendorId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "companyVendorName" : {
+            "type" : "string"
+          },
+          "jobId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "costScheduleId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "invoiceRetainageEnabledFlag" : {
+            "type" : "boolean"
+          },
+          "invoiceRetainagePct" : {
+            "type" : "number"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "potential", "closed", "open", "approved", "pending" ]
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateApproved" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contractCode" : {
+            "type" : "string"
+          },
+          "purchaseOrderCode" : {
+            "type" : "string"
+          },
+          "awardedBy" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "lastUpdatedBy" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "bidroomId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "breakdownEnabled" : {
+            "type" : "boolean"
+          },
+          "sharedWithVendor" : {
+            "type" : "boolean"
+          },
+          "sentToAccountingFlag" : {
+            "type" : "boolean"
+          },
+          "sentToAccountingTimestamp" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "sentToAccountingUserId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "vendorTeam" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int32"
+            }
+          },
+          "ownerTeam" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int32"
+            }
+          },
+          "approvalWorkflow" : {
+            "$ref" : "#/components/schemas/ApprovalWorkflowResponse"
+          },
+          "costDetails" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubCostDetailResponse"
+            }
+          }
+        }
+      },
+      "PubContractRequest" : {
+        "type" : "object",
+        "properties" : {
+          "contractCode" : {
+            "maxLength" : 2047,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "purchaseOrderCode" : {
+            "maxLength" : 2047,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "potential", "closed", "open", "approved", "pending" ]
+          }
+        }
+      },
+      "PagingResponsePubContractBaseResponse" : {
+        "type" : "object",
+        "properties" : {
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubContractBaseResponse"
+            }
+          },
+          "orderData" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PagingOrderDataResponse"
+            }
+          },
+          "prev" : {
+            "type" : "string"
+          },
+          "next" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubContractBaseResponse" : {
+        "type" : "object",
+        "properties" : {
+          "currencyCode" : {
+            "type" : "string",
+            "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZWD" ]
+          },
+          "baseCurrencyCode" : {
+            "type" : "string",
+            "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZWD" ]
+          },
+          "fxRate" : {
+            "type" : "number"
+          },
+          "isFxConverted" : {
+            "type" : "boolean"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "label" : {
+            "type" : "string"
+          },
+          "budget" : {
+            "type" : "number"
+          },
+          "awardedValue" : {
+            "type" : "number"
+          },
+          "dateAwarded" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "companyVendorId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "companyVendorName" : {
+            "type" : "string"
+          },
+          "jobId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "costScheduleId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "invoiceRetainageEnabledFlag" : {
+            "type" : "boolean"
+          },
+          "invoiceRetainagePct" : {
+            "type" : "number"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "potential", "closed", "open", "approved", "pending" ]
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateApproved" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contractCode" : {
+            "type" : "string"
+          },
+          "purchaseOrderCode" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubInvoiceAccountingDetailRawResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "lineItem" : {
+            "type" : "string"
+          },
+          "accountCode" : {
+            "type" : "string"
+          },
+          "costCode" : {
+            "type" : "string"
+          },
+          "categoryCode" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "POSTED", "RELEASED", "PAID", "UNUSED", "VOID", "REVERSED", "DELETED" ]
+          },
+          "checkNumber" : {
+            "type" : "string"
+          },
+          "checkDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "checkPeriod" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "paymentMethod" : {
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "number"
+          },
+          "retentionAmount" : {
+            "type" : "number"
+          },
+          "reference" : {
+            "type" : "string"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "PubInvoiceAccountingRawResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "invoiceNumber" : {
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "number"
+          },
+          "valueOrig" : {
+            "type" : "number"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "YARDI_INVOICE", "MRI_INVOICE", "GENERIC_ACCOUNTING_INVOICE", "IBS_INVOICE_DETAIL", "IBS_CONTRACT_DETAIL", "JDE_INVOICE", "MRI_JOURNAL_ENTRY", "YARDI_JOURNAL_ENTRY", "PUB_API_INVOICE" ]
+          },
+          "buildingCode" : {
+            "type" : "string"
+          },
+          "jobCode" : {
+            "type" : "string"
+          },
+          "vendorCode" : {
+            "type" : "string"
+          },
+          "invoiceDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "period" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "source" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "POSTED", "RELEASED", "PAID", "UNUSED", "VOID", "REVERSED", "DELETED" ]
+          },
+          "contractCode" : {
+            "type" : "string"
+          },
+          "costCode" : {
+            "type" : "string"
+          },
+          "costCodeName" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "invoiceCode" : {
+            "type" : "string"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "details" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubInvoiceAccountingDetailRawResponse"
+            }
+          }
+        }
+      },
+      "PubInvoiceAccountingDetailRawPostRequest" : {
+        "required" : [ "accountCode", "amount", "categoryCode", "lineItem", "status" ],
+        "type" : "object",
+        "properties" : {
+          "lineItem" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "accountCode" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "categoryCode" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "POSTED", "RELEASED", "PAID", "UNUSED", "VOID", "REVERSED", "DELETED" ]
+          },
+          "amount" : {
+            "type" : "number"
+          },
+          "checkNumber" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "checkDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "checkPeriod" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "paymentMethod" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "retentionAmount" : {
+            "type" : "number"
+          },
+          "reference" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          }
+        }
+      },
+      "PubInvoiceAccountingRawPostRequest" : {
+        "required" : [ "amount", "buildingCode", "invoiceCode", "invoiceDate", "invoiceNumber", "jobCode", "period", "source", "status", "valueOrig", "vendorCode" ],
+        "type" : "object",
+        "properties" : {
+          "invoiceNumber" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "number"
+          },
+          "valueOrig" : {
+            "type" : "number"
+          },
+          "buildingCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "jobCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "vendorCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "invoiceDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "period" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "source" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "POSTED", "RELEASED", "PAID", "UNUSED", "VOID", "REVERSED", "DELETED" ]
+          },
+          "invoiceCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "contractCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "costCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "costCodeName" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "description" : {
+            "maxLength" : 65535,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "details" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubInvoiceAccountingDetailRawPostRequest"
+            }
+          }
+        }
+      },
+      "PubInvoiceAccountingDetailRawPutRequest" : {
+        "required" : [ "id" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "minimum" : 1,
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "lineItem" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "accountCode" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "categoryCode" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "POSTED", "RELEASED", "PAID", "UNUSED", "VOID", "REVERSED", "DELETED" ]
+          },
+          "checkNumber" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "checkDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "checkPeriod" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "paymentMethod" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "number"
+          },
+          "retentionAmount" : {
+            "type" : "number"
+          },
+          "reference" : {
+            "maxLength" : 63,
+            "minLength" : 0,
+            "type" : "string"
+          }
+        }
+      },
+      "PubInvoiceAccountingRawPutRequest" : {
+        "type" : "object",
+        "properties" : {
+          "invoiceNumber" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "number"
+          },
+          "valueOrig" : {
+            "type" : "number"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "POSTED", "RELEASED", "PAID", "UNUSED", "VOID", "REVERSED", "DELETED" ]
+          },
+          "costCode" : {
+            "maxLength" : 64,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "costCodeName" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "description" : {
+            "maxLength" : 65535,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "details" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubInvoiceAccountingDetailRawPutRequest"
+            }
+          }
+        }
+      },
+      "PagingResponsePubInvoiceAccountingRawBaseResponse" : {
+        "type" : "object",
+        "properties" : {
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubInvoiceAccountingRawBaseResponse"
+            }
+          },
+          "orderData" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PagingOrderDataResponse"
+            }
+          },
+          "prev" : {
+            "type" : "string"
+          },
+          "next" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubInvoiceAccountingRawBaseResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "invoiceNumber" : {
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "number"
+          },
+          "valueOrig" : {
+            "type" : "number"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "YARDI_INVOICE", "MRI_INVOICE", "GENERIC_ACCOUNTING_INVOICE", "IBS_INVOICE_DETAIL", "IBS_CONTRACT_DETAIL", "JDE_INVOICE", "MRI_JOURNAL_ENTRY", "YARDI_JOURNAL_ENTRY", "PUB_API_INVOICE" ]
+          },
+          "buildingCode" : {
+            "type" : "string"
+          },
+          "jobCode" : {
+            "type" : "string"
+          },
+          "vendorCode" : {
+            "type" : "string"
+          },
+          "invoiceDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "period" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "source" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "PENDING", "POSTED", "RELEASED", "PAID", "UNUSED", "VOID", "REVERSED", "DELETED" ]
+          },
+          "contractCode" : {
+            "type" : "string"
+          },
+          "costCode" : {
+            "type" : "string"
+          },
+          "costCodeName" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "invoiceCode" : {
+            "type" : "string"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "PagingResponsePubInvoiceBaseResponse" : {
+        "type" : "object",
+        "properties" : {
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubInvoiceBaseResponse"
+            }
+          },
+          "orderData" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PagingOrderDataResponse"
+            }
+          },
+          "prev" : {
+            "type" : "string"
+          },
+          "next" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubInvoiceBaseResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "invoiceValue" : {
+            "type" : "number"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "dateIssued" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contractId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "pending", "approved", "rejected", "reviewed" ]
+          },
+          "invoiceNumber" : {
+            "type" : "integer"
+          },
+          "invoiceNumberAlphanumeric" : {
+            "type" : "string"
+          },
+          "periodStart" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "periodEnd" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "reason" : {
+            "type" : "string"
+          },
+          "isReleaseRetentionInvoice" : {
+            "type" : "boolean"
+          },
+          "isCreatedByVendor" : {
+            "type" : "boolean"
+          },
+          "dateApproved" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "invoiceCode" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubInvoiceDetailResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "costDetailId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "invoiceAmount" : {
+            "type" : "number"
+          },
+          "retainage" : {
+            "type" : "number"
+          },
+          "retainageRelease" : {
+            "type" : "number"
+          },
+          "label" : {
+            "type" : "string"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "PubInvoiceResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "invoiceValue" : {
+            "type" : "number"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "dateIssued" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contractId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "pending", "approved", "rejected", "reviewed" ]
+          },
+          "invoiceNumber" : {
+            "type" : "integer"
+          },
+          "invoiceNumberAlphanumeric" : {
+            "type" : "string"
+          },
+          "periodStart" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "periodEnd" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "reason" : {
+            "type" : "string"
+          },
+          "isReleaseRetentionInvoice" : {
+            "type" : "boolean"
+          },
+          "isCreatedByVendor" : {
+            "type" : "boolean"
+          },
+          "dateApproved" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "invoiceCode" : {
+            "type" : "string"
+          },
+          "invoiceDetails" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubInvoiceDetailResponse"
+            }
+          }
+        }
+      },
+      "PubInvoicePutRequest" : {
+        "required" : [ "status" ],
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "string",
+            "enum" : [ "pending", "approved", "rejected", "reviewed" ]
+          },
+          "reason" : {
+            "maxLength" : 65535,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "invoiceCode" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubJobItemResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "costItem" : {
+            "type" : "string"
+          },
+          "forecast" : {
+            "type" : "number"
+          },
+          "remaining" : {
+            "type" : "number"
+          },
+          "invoiced" : {
+            "type" : "number"
+          },
+          "committed" : {
+            "type" : "number"
+          },
+          "holds" : {
+            "type" : "number"
+          },
+          "pendingChangeOrders" : {
+            "type" : "number"
+          },
+          "pendingInvoices" : {
+            "type" : "number"
+          },
+          "ordinal" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "bidroomId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "contractId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "sectionId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "budget" : {
+            "type" : "number"
+          },
+          "paidToDate" : {
+            "type" : "number"
+          }
+        }
+      },
+      "PubJobItemSectionResponse" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "ordinal" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "section" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubJobResponse" : {
+        "type" : "object",
+        "properties" : {
+          "currencyCode" : {
+            "type" : "string",
+            "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZWD" ]
+          },
+          "baseCurrencyCode" : {
+            "type" : "string",
+            "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZWD" ]
+          },
+          "fxRate" : {
+            "type" : "number"
+          },
+          "isFxConverted" : {
+            "type" : "boolean"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "userIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int32"
+            }
+          },
+          "buildingName" : {
+            "type" : "string"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "jobType" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "sqFt" : {
+            "type" : "number"
+          },
+          "companyBuildingId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "stage" : {
+            "type" : "string"
+          },
+          "startDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "endDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numUnits" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "budget" : {
+            "type" : "number"
+          },
+          "jobCode" : {
+            "type" : "string"
+          },
+          "pmUserId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "pmUserEmailAddress" : {
+            "type" : "string"
+          },
+          "archivedFlag" : {
+            "type" : "boolean"
+          },
+          "forecast" : {
+            "type" : "number"
+          },
+          "remaining" : {
+            "type" : "number"
+          },
+          "variance" : {
+            "type" : "number"
+          },
+          "committed" : {
+            "type" : "number"
+          },
+          "approvedInvoices" : {
+            "type" : "number"
+          },
+          "pendingInvoices" : {
+            "type" : "number"
+          },
+          "awardedValue" : {
+            "type" : "number"
+          },
+          "holds" : {
+            "type" : "number"
+          },
+          "paidToDate" : {
+            "type" : "number"
+          },
+          "pendingChangeOrders" : {
+            "type" : "number"
+          },
+          "approvedChangeOrders" : {
+            "type" : "number"
+          },
+          "jobItems" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubJobItemResponse"
+            }
+          },
+          "jobItemSections" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubJobItemSectionResponse"
+            }
+          }
+        }
+      },
+      "PagingResponsePubJobBaseResponse" : {
+        "type" : "object",
+        "properties" : {
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubJobBaseResponse"
+            }
+          },
+          "orderData" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PagingOrderDataResponse"
+            }
+          },
+          "prev" : {
+            "type" : "string"
+          },
+          "next" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubJobBaseResponse" : {
+        "type" : "object",
+        "properties" : {
+          "currencyCode" : {
+            "type" : "string",
+            "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZWD" ]
+          },
+          "baseCurrencyCode" : {
+            "type" : "string",
+            "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZWD" ]
+          },
+          "fxRate" : {
+            "type" : "number"
+          },
+          "isFxConverted" : {
+            "type" : "boolean"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "userIds" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int32"
+            }
+          },
+          "buildingName" : {
+            "type" : "string"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "jobType" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "sqFt" : {
+            "type" : "number"
+          },
+          "companyBuildingId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateUpdated" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "stage" : {
+            "type" : "string"
+          },
+          "startDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "endDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numUnits" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "budget" : {
+            "type" : "number"
+          },
+          "jobCode" : {
+            "type" : "string"
+          },
+          "pmUserId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "pmUserEmailAddress" : {
+            "type" : "string"
+          },
+          "archivedFlag" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "PubJobRequest" : {
+        "required" : [ "endDate", "jobType", "startDate", "title" ],
+        "type" : "object",
+        "properties" : {
+          "title" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "jobType" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "description" : {
+            "maxLength" : 65535,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "sqFt" : {
+            "minimum" : 0,
+            "exclusiveMinimum" : false,
+            "type" : "number"
+          },
+          "companyBuildingId" : {
+            "minimum" : 1,
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "stage" : {
+            "type" : "string",
+            "enum" : [ "Not Started", "Planning", "Design", "Pre-Construction", "Bidding", "Construction", "Service Contract", "Closeout", "Complete", "On Hold", "Canceled", "80% Complete", "Construction Complete", "Brand Sign Off" ]
+          },
+          "startDate" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "endDate" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "numUnits" : {
+            "minimum" : 0,
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "jobCode" : {
+            "type" : "string"
+          },
+          "pmUserEmailAddress" : {
+            "type" : "string"
+          },
+          "archivedFlag" : {
+            "type" : "boolean"
+          },
+          "currencyCode" : {
+            "type" : "string",
+            "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZWD" ]
+          },
+          "fxRate" : {
+            "minimum" : 0,
+            "exclusiveMinimum" : false,
+            "type" : "number"
+          },
+          "attributes" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "PubUserJobPostRequest" : {
+        "required" : [ "userId", "userJobRole" ],
+        "type" : "object",
+        "properties" : {
+          "userId" : {
+            "minimum" : 1,
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "userJobRole" : {
+            "type" : "string",
+            "enum" : [ "admin", "collaborator" ]
+          },
+          "sendNotification" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "PagingResponsePubUserJobGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubUserJobGetResponse"
+            }
+          },
+          "orderData" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PagingOrderDataResponse"
+            }
+          },
+          "prev" : {
+            "type" : "string"
+          },
+          "next" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubUserJobGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "userEmail" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "firstName" : {
+            "maxLength" : 100,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "lastName" : {
+            "maxLength" : 100,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "title" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "userId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "userLastLogin" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "jobId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "userJobRole" : {
+            "type" : "string",
+            "enum" : [ "admin", "collaborator" ]
+          }
+        }
+      },
+      "PubUserJobDeleteRequest" : {
+        "type" : "object",
+        "properties" : {
+          "userId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "userEmail" : {
+            "type" : "string"
+          }
+        }
+      },
+      "OauthClientCredentialsResponse" : {
+        "type" : "object",
+        "properties" : {
+          "accessToken" : {
+            "type" : "string"
+          },
+          "tokenType" : {
+            "type" : "string",
+            "enum" : [ "bearer" ]
+          },
+          "expiresIn" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "OauthFlowPostRequest" : {
+        "required" : [ "clientId", "clientSecret", "grantType" ],
+        "type" : "object",
+        "properties" : {
+          "clientId" : {
+            "type" : "string"
+          },
+          "clientSecret" : {
+            "type" : "string"
+          },
+          "grantType" : {
+            "type" : "string",
+            "enum" : [ "CLIENT_CREDENTIALS" ]
+          }
+        }
+      },
+      "PubUserGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "userEmail" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "firstName" : {
+            "maxLength" : 100,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "lastName" : {
+            "maxLength" : 100,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "title" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "userId" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "userLastLogin" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "userCompanyRole" : {
+            "type" : "string",
+            "enum" : [ "admin", "team", "collaborator" ]
+          }
+        }
+      },
+      "PagingResponsePubUserGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PubUserGetResponse"
+            }
+          },
+          "orderData" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PagingOrderDataResponse"
+            }
+          },
+          "prev" : {
+            "type" : "string"
+          },
+          "next" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PubUserPostRequest" : {
+        "required" : [ "userCompanyRole" ],
+        "type" : "object",
+        "properties" : {
+          "userEmail" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "firstName" : {
+            "maxLength" : 100,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "lastName" : {
+            "maxLength" : 100,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "title" : {
+            "maxLength" : 255,
+            "minLength" : 0,
+            "type" : "string"
+          },
+          "userCompanyRole" : {
+            "type" : "string",
+            "enum" : [ "admin", "team", "collaborator" ]
+          },
+          "sendNotification" : {
+            "type" : "boolean"
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "oauth" : {
+        "type" : "oauth2",
+        "description" : "Pub API uses OAuth 2 with the client_credentials grant flow",
+        "flows" : {
+          "clientCredentials" : {
+            "tokenUrl" : "/pub/v1/oauth2/token",
+            "scopes" : { }
+          }
+        }
+      }
+    }
+  }
+}
